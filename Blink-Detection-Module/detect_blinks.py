@@ -22,7 +22,7 @@ def nextButton(id):
     return id
 
 driver = webdriver.Chrome("D:/webdriver/chromedriver")
-driver.get("http://127.0.0.1:5500/supreme-system/index.html")
+driver.get("http://127.0.0.1:5501/index.html")
 time.sleep(2)
 id='button_1'
 
@@ -91,8 +91,10 @@ def main() :
     
     # loop over frames from the video stream
     while True:
+		
     	# if this is a file video stream, then we need to check if
     	# there any more frames left in the buffer to process
+
     	if fileStream and not vs.more():
     		break
     
@@ -136,21 +138,27 @@ def main() :
 			#Calculate for single_blink or double_blink
 		
 				
-
+			
+			#################################################################
+    		
+    		#id=nextButton(id)
+			#################################################################
     		# check to see if the eye aspect ratio is below the blink
     		# threshold, and if so, increment the blink frame counter
     		if ear < EYE_AR_THRESH:
-    			COUNTER += 1;
-    			
+    			COUNTER += 1;driver.execute_script(f'document.getElementById("{id}").style.border="4px solid black"');id=nextButton(id)
     
     		# otherwise, the eye aspect ratio is not below the blink
     		# threshold
     		else:
     			# if the eyes were closed for a sufficient number of
     			# then increment the total number of blinks
-    			if COUNTER >= EYE_AR_CONSEC_FRAMES+1:
-    				TOTAL += 1;button = driver.find_element_by_id(id);button.click();id=nextButton(id);time.sleep(0.5)	
+    			if COUNTER >= EYE_AR_CONSEC_FRAMES-1:
+    				#TOTAL += 1;button = driver.find_element_by_id(id);button.click();id=nextButton(id);time.sleep(0.5)	
     
+    				TOTAL += 1;button = driver.find_element_by_id(id);button.click();driver.execute_script(f'document.getElementById("{id}").style.border="4px solid #f22f46"')
+    			
+						    						  
     			# reset the eye frame counter
 				
     							

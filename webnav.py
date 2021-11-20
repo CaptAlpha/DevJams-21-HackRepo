@@ -11,8 +11,8 @@ def nextButton(id):
     id=tempArr[0]+'_'+str(tempNum)
     return id
 
-driver = webdriver.Chrome("C:/webdrivers/chromedriver")
-driver.get("http://127.0.0.1:3000/index.html")
+driver = webdriver.Chrome("D:/webdriver/chromedriver")
+driver.get("http://127.0.0.1:5501/index.html")
 time.sleep(2)
 id='button_1'
 for i in range(6):
