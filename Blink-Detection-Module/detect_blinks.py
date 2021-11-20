@@ -16,8 +16,8 @@ def nextButton(id):
     tempArr=id.split('_')
     tempNum=int(tempArr[1])
     tempNum+=1
-    if tempNum>3:
-        tempNum%=3
+    if tempNum>4:
+        tempNum%=4
     id=tempArr[0]+'_'+str(tempNum)
     return id
 
@@ -25,9 +25,7 @@ driver = webdriver.Chrome("D:/webdriver/chromedriver")
 driver.get("http://127.0.0.1:5501/index.html")
 time.sleep(2)
 id='button_1'
-
-
-
+driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"')
 
 def eye_aspect_ratio(eye):
 	# compute the euclidean distances between the two sets of
@@ -153,10 +151,10 @@ def main() :
     		else:
     			# if the eyes were closed for a sufficient number of
     			# then increment the total number of blinks
-    			if COUNTER >= EYE_AR_CONSEC_FRAMES-1:
-    				#TOTAL += 1;button = driver.find_element_by_id(id);button.click();id=nextButton(id);time.sleep(0.5)	
+    			if COUNTER >= EYE_AR_CONSEC_FRAMES+1:
+        				TOTAL += 1;button = driver.find_element_by_id(id);button.click();driver.execute_script(f'document.getElementById("{id}").style.border="thick solid red"');id=nextButton(id);driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"')	
     
-    				TOTAL += 1;button = driver.find_element_by_id(id);button.click();driver.execute_script(f'document.getElementById("{id}").style.border="4px solid #f22f46"')
+    				#TOTAL += 1;button = driver.find_element_by_id(id);button.click();driver.execute_script(f'document.getElementById("{id}").style.border="4px solid #f22f46"')
     			
 						    						  
     			# reset the eye frame counter

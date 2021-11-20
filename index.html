@@ -3,7 +3,7 @@
 <head>
     <script>
         window.addEventListener("DOMContentLoaded", () => {
-            const button = document.getElementById("button");
+            const button = document.getElementById("button_4");
             const result = document.getElementById("result");
             const main = document.getElementsByTagName("main")[0];
             let listening = false;
@@ -31,13 +31,15 @@
                         const p = document.createElement("p");
                         if (res.isFinal) {
                             p.classList.add("final");
+                            stop();
+                            listening = !listening;
                         }
                         p.appendChild(text);
                         result.appendChild(p);
                     }
                 };
-                recognition.continuous = true;
                 recognition.interimResults = true;
+                recognition.continuous = true;
                 recognition.addEventListener("result", onResult);
                 button.addEventListener("click", event => {
                     listening ? stop() : start();
@@ -138,7 +140,7 @@
     <button id='button_3' onclick="autoClick3()">Auto Click</button>
     <p id='test'></p>
     <main>
-        <button id="button">Start listening</button>
+        <button id="button_4">Start listening</button>
         <div id="result"></div>
         <p id="message" hidden aria-hidden="true">
             Your browser doesn't support Speech Recognition. Sorry.
