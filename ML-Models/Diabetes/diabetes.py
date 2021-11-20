@@ -5,7 +5,7 @@ with open('requirements.txt', 'w') as f:
     for line in requirements:
         f.write(line + '\n')
     
-os.system('pip install -r requirements.txt')
+#os.system('pip install -r requirements.txt')
         
 import numpy as np
 import pandas as pd
@@ -14,7 +14,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import joblib
 
-filepath='ML-Models\diabetes.csv'
+filepath='ML-Models\Diabetes\diabetes.csv'
 tar= 'Outcome'
 df=pd.read_csv(filepath)
 feature_df = df.drop(tar, axis=1, inplace=False)
