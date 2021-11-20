@@ -16,18 +16,16 @@ def nextButton(id):
     tempArr=id.split('_')
     tempNum=int(tempArr[1])
     tempNum+=1
-    if tempNum>3:
-        tempNum%=3
+    if tempNum>4:
+        tempNum%=4
     id=tempArr[0]+'_'+str(tempNum)
     return id
 
-driver = webdriver.Chrome("D:/webdriver/chromedriver")
-driver.get("http://127.0.0.1:5500/supreme-system/index.html")
+driver = webdriver.Chrome("C:/webdrivers/chromedriver")
+driver.get("http://127.0.0.1:3000/DevJams-21-HackRepo/index.html")
 time.sleep(2)
 id='button_1'
-
-
-
+driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"')
 
 def eye_aspect_ratio(eye):
 	# compute the euclidean distances between the two sets of
@@ -47,7 +45,7 @@ def eye_aspect_ratio(eye):
  
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-p", "--shape-predictor",default="Blink-Detection-Module\shape_predictor_68_face_landmarks.dat",
+ap.add_argument("-p", "--shape-predictor",default="DevJams-21-HackRepo\Blink-Detection-Module\shape_predictor_68_face_landmarks.dat",
 	help="path to facial landmark predictor")
 ap.add_argument("-v", "--video", type=str, default="camera",
 	help="path to input video file")
@@ -149,7 +147,7 @@ def main() :
     			# if the eyes were closed for a sufficient number of
     			# then increment the total number of blinks
     			if COUNTER >= EYE_AR_CONSEC_FRAMES+1:
-    				TOTAL += 1;button = driver.find_element_by_id(id);button.click();id=nextButton(id);time.sleep(0.5)	
+    				TOTAL += 1;button = driver.find_element_by_id(id);button.click();driver.execute_script(f'document.getElementById("{id}").style.border="thick solid red"');id=nextButton(id);driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"')	
     
     			# reset the eye frame counter
 				
