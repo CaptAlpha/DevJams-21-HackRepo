@@ -1,0 +1,266 @@
+<html>
+
+<head>
+  <script>
+    function home() {
+      var arr = document.getElementsByClassName("content");
+      arr[0].style.display = "block";
+      arr[1].style.display = "none";
+      arr[2].style.display = "none";
+      arr[3].style.display = "none";
+      arr[4].style.display = "none";
+    }
+
+    function diabetes() {
+      var arr = document.getElementsByClassName("content");
+      arr[0].style.display = "none";
+      arr[1].style.display = "block";
+      arr[2].style.display = "none";
+      arr[3].style.display = "none";
+      arr[4].style.display = "none";
+    }
+
+    function heart() {
+      var arr = document.getElementsByClassName("content");
+      arr[0].style.display = "none";
+      arr[1].style.display = "none";
+      arr[2].style.display = "block";
+      arr[3].style.display = "none";
+      arr[4].style.display = "none";
+      arr[2].style.height = "150%";
+    }
+
+    function speech() {
+      var arr = document.getElementsByClassName("content");
+      arr[0].style.display = "none";
+      arr[1].style.display = "none";
+      arr[2].style.display = "none";
+      arr[3].style.display = "block";
+      arr[4].style.display = "none";
+    }
+
+    function contact() {
+      var arr = document.getElementsByClassName("content");
+      arr[0].style.display = "none";
+      arr[1].style.display = "none";
+      arr[2].style.display = "none";
+      arr[3].style.display = "none";
+      arr[4].style.display = "block";
+    }
+  </script>
+  <style>
+    main {
+      flex-grow: 2;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 12px;
+      margin-bottom: 2em;
+      padding-top: 4em;
+      text-align: center;
+    }
+
+    @keyframes bg-pulse {
+      0% {
+        background-color: #fff;
+      }
+
+      50% {
+        background-color: #c7ecee;
+      }
+
+      100% {
+        backgrouond-color: #fff;
+      }
+    }
+
+    main.speaking {
+      animation: bg-pulse 1.5s alternate ease-in-out infinite;
+    }
+
+    #result {
+      color: #666;
+      font-style: italic;
+      text-align: center;
+    }
+
+    #result .final {
+      color: #0d122b;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="../static/style.css" />
+  <link rel="icon" href="http://example.com/favicon.png">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbarContainer">
+    <div class="home">
+      <button id="button_1" class="btn" onclick="home()">Home</button>
+    </div>
+    <div class="buttons">
+      <div class="option">
+        <button id="button_2" class="btn" onclick="diabetes()">
+          Diabetes Monitor
+        </button>
+      </div>
+      <div class="option">
+        <button id="button_3" class="btn" onclick="heart()">
+          Heart Monitor
+        </button>
+      </div>
+      <div class="option">
+        <button id="button_4" class="btn" onclick="speech()">
+          Speech Recognition
+        </button>
+      </div>
+      <div class="option">
+        <button id="button_5" class="btn" onclick="contact()">
+          Emergency Contact
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div id="content-home" class="content">
+    <!-- <img src="./images/Screenshot 2021-11-21 at 12.50.49 PM.png" alt="" /> -->
+    <img src="../static/Screenshot 2021-11-21 at 12.51.04 PM.png" alt="" />
+    <div id="test" style="display: none;">
+      <p id="diabetes_bool">{{ diabetes_bool }}</p>
+      <p id="heart_bool">{{ heart_bool }}</p>
+    </div>
+    <script>
+      diabetes_bool = document.getElementById("diabetes_bool").innerText
+      heart_bool = document.getElementById("heart_bool").innerText
+
+      if (parseInt(diabetes_bool) == 1)
+        setTimeout(function () {
+          document.getElementById("button_2").click()
+        }, 1)
+
+
+      if (parseInt(heart_bool) == 1)
+        setTimeout(function () {
+          document.getElementById("button_3").click()
+        }, 1)
+    </script>
+    <!-- <h1 class="heading">Home Page</h1>
+      <div class="list">
+        <ul>
+          <li>
+            We navigate through out the web application using detections of
+            blinks
+          </li>
+          <li>
+            A short blink refers to next option whereas a long blink can be used
+            to select a button
+          </li>
+          <li>
+            Scanning of various health parameters using sensors from smart
+            watches
+          </li>
+          <li>Using third party API calls to access resources on the web</li>
+          <li>
+            Trained ML Models to scan for diseases such as heart failures and
+            diabetes.
+          </li>
+          <li>
+            Contact Emergency contacts in times for serious emergencies using
+            automated whatsapp messages
+          </li>
+        </ul>
+      </div> -->
+  </div>
+
+  <div id="content-diabetes" class="content">
+    <div class="login">
+      <h1 class="heading">Diabetes Detection</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict_diabetes')}}" method="post" id='diabetes_form'>
+        <input type="text" name="Pregnancies" placeholder="Pregnancies" required />
+        <input type="text" name="Glucose" placeholder="Glucose" required />
+        <input type="text" name="BloodPressure" placeholder="BloodPressure" required />
+        <input type="text" name="SkinThickness" placeholder="SkinThickness" required />
+        <input type="text" name="Insulin" placeholder="Insulin" required />
+        <input type="text" name="BMI" placeholder="BMI" required />
+        <input type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction" required />
+        <input type="text" name="Age" placeholder="Age" required />
+        <button type="submit" class="diabetes-btn">Predict</button>
+      </form>
+      <p style="font-size: xx-large;text-align:center">
+        {{ diabetes_prediction }}</p>
+    </div>
+  </div>
+
+  <div id="content-heart" class="content">
+    <div class="login">
+      <h1 class="heading">Heart Disease Detection</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict_heart')}}" method="post" id='heart_form'>
+        <input type="text" name="age" placeholder="age" required />
+
+        <input type="text" name="anaemia" placeholder="anaemia" required />
+
+        <input type="text" name="creatinine_phosphokinase" placeholder="creatinine_phosphokinase" required />
+
+        <input type="text" name="diabetes" placeholder="diabetes" required />
+
+        <input type="text" name="ejection_fraction" placeholder="ejection_fraction" required />
+
+        <input type="text" name="high_blood_pressure" placeholder="high_blood_pressure" required />
+
+        <input type="text" name="platelets" placeholder="platelets" required />
+
+        <input type="text" name="serum_creatinine" placeholder="serum_creatinine" required />
+
+        <input type="text" name="serum_sodium" placeholder="serum_sodium" required />
+
+        <input type="text" name="sex" placeholder="sex" required />
+
+        <input type="text" name="smoking" placeholder="smoking" required />
+
+        <input type="text" name="time" placeholder="time" required />
+
+        <button type="submit" class="heart-btn">Predict</button>
+      </form>
+      <p style="font-size: xx-large;text-align:center">
+        {{ heart_prediction }}</p>
+    </div>
+  </div>
+
+  <div id="content-speech" class="content">
+    <h1 class="heading">Speak to search Youtube</h1>
+    <main>
+      <div id="result"></div>
+      <p id="message" hidden aria-hidden="true">
+        Your browser doesn't support Speech Recognition. Sorry.
+      </p>
+    </main>
+
+    <div class="form-container">
+      <form id="yt_form">
+        <!-- <input type="text" id="search" /> -->
+        <input type="submit" value="Search" id="yt_submit" />
+      </form>
+    </div>
+
+    <div class="row">
+      <div id="videos"></div>
+    </div>
+  </div>
+
+  <div id="content-contact" class="content">
+    <h1 class="heading">Emergency Contact Page</h1>
+    <a id='send_msg' href="https://wa.me/919110389277/?text=emergency contact" target="_blank"><button class='send_msg'>Send</button></a>
+  </div>
+
+  <!-- <p id="page"></p> -->
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../static/script.js"></script>
+
+</html>

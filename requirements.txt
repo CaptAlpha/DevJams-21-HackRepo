@@ -1,0 +1,12 @@
+scipy==1.6.1
+pandas==1.2.0
+Flask==1.1.2
+opencv_python==4.5.1.48
+joblib==1.0.1
+dlib==19.22.1
+imutils==0.5.4
+numpy==1.19.4
+pywhatkit==5.2
+scikit_learn==1.0.1
+selenium==4.0.0
+python==3.9.1

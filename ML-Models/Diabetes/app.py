@@ -5,7 +5,7 @@ import joblib
 app = Flask(__name__)
 model = joblib.load(open('ML-Models\Diabetes\model.pkl', 'rb'))
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
     return render_template('index.html')
 

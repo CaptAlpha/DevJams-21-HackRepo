@@ -21,8 +21,13 @@ def nextButton(id):
     id=tempArr[0]+'_'+str(tempNum)
     return id
 
+<<<<<<< HEAD
 driver = webdriver.Chrome("D:/webdriver/chromedriver")
 driver.get("http://127.0.0.1:5501/index.html")
+=======
+driver = webdriver.Chrome("C:/webdrivers/chromedriver")
+driver.get("http://127.0.0.1:5000/")
+>>>>>>> face9c2ca881e0d49d83e4d7c879db809d1ea65b
 time.sleep(2)
 id='button_1'
 driver.execute_script(f'document.getElementById("{id}").style.cssText="color: #000000;background-color: #d9cab3;transition: all 1000ms ease;cursor: pointer;"')
