@@ -16,8 +16,8 @@ def nextButton(id):
     tempArr=id.split('_')
     tempNum=int(tempArr[1])
     tempNum+=1
-    if tempNum>4:
-        tempNum%=4
+    if tempNum>5:
+        tempNum%=5
     id=tempArr[0]+'_'+str(tempNum)
     return id
 
@@ -153,10 +153,10 @@ def main() :
     			# if the eyes were closed for a sufficient number of
     			# then increment the total number of blinks
     			if COUNTER >= EYE_AR_CONSEC_FRAMES+5:
-        				TOTAL += 1;button = driver.find_element_by_id(id)
-        				button.click()
-    			elif COUNTER >= EYE_AR_CONSEC_FRAMES+1:
-    				driver.execute_script(f'document.getElementById("{id}").style.border="thick solid red"');id=nextButton(id);driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"')
+    				TOTAL += 1;button = driver.find_element_by_id(id)
+    				button.click()
+    			elif COUNTER >= EYE_AR_CONSEC_FRAMES+2:
+    				driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"');id=nextButton(id);driver.execute_script(f'document.getElementById("{id}").style.border="thick solid white"')
 
 
     
