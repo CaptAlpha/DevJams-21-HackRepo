@@ -129,8 +129,8 @@ def main() :
     		# visualize each of the eyes
     		leftEyeHull = cv2.convexHull(leftEye)
     		rightEyeHull = cv2.convexHull(rightEye)
-    		cv2.drawContours(frame, [leftEyeHull], -1, (255, 255, 255), 1)
-    		cv2.drawContours(frame, [rightEyeHull], -1, (255, 255, 255), 1)
+    		cv2.drawContours(frame, [leftEyeHull], -1, (255, 0, 255), 1)
+    		cv2.drawContours(frame, [rightEyeHull], -1, (255, 0, 255), 1)
     		
 
 			#Calculate for single_blink or double_blink
