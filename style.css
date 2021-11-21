@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: 100%;
+}
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #000000;
+  height: 10%;
+}
+.home {
+  width: 15%;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+.option {
+  width: 25%;
+  height: 100%;
+}
+.btn {
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+  background-color: #000000;
+  border: none;
+  border-right: 2px solid #d9cab3;
+  border-left: 2px solid #d9cab3;
+  color: white;
+  font-size: 130%;
+}
+.btn:hover {
+  color: #000000;
+  background-color: #d9cab3;
+  transition: all 1000ms ease;
+  cursor: pointer;
+}
+.content {
+  height: 100%;
+  background-color: #f6f6f6;
+  display: none;
+}
+#content-home {
+  display: block;
+}
+
+.heading {
+  text-align: center;
+  color: #212121;
+  padding: 3%;
+  font-size: 300%;
+}
+
+.list {
+  width: 70%;
+  margin-left: 15%;
+  font-size: 150%;
+}
+li {
+  padding: 5% 0%;
+}
+
+form {
+  width: 100%;
+}
+
+input {
+  padding: 1%;
+  margin: 0.5%;
+  width: 50%;
+  margin-left: 25%;
+  border: 0.5px solid #212121;
+  border-radius: 10px;
+  display: block;
+}
+.heart-btn,
+.diabetes-btn {
+  width: 50%;
+  margin: 3%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 2px solid #d9cab3;
+  background-color: #212121;
+  margin-left: 25%;
+  color: #d9cab3;
+  font-size: 150%;
+}
