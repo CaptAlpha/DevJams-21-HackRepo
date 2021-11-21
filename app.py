@@ -22,7 +22,7 @@ def predict_diabetes():
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', diabetes_prediction='Diabetes: {}'.format(output))
+    return render_template('index.html', diabetes_prediction='Diabetes: {}'.format(output), diabetes_bool=1)
 
 @app.route('/predict_heart',methods=['POST'])
 def predict_heart():
@@ -35,7 +35,7 @@ def predict_heart():
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', heart_prediction='Heart Disease: {}'.format(output))
+    return render_template('index.html', heart_prediction='Heart Disease: {}'.format(output), heart_bool=1)
 
 if __name__ == "__main__":
     app.run(debug=True)
