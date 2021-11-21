@@ -129,8 +129,8 @@ def main() :
     		# visualize each of the eyes
     		leftEyeHull = cv2.convexHull(leftEye)
     		rightEyeHull = cv2.convexHull(rightEye)
-    		cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
-    		cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
+    		cv2.drawContours(frame, [leftEyeHull], -1, (255, 255, 255), 1)
+    		cv2.drawContours(frame, [rightEyeHull], -1, (255, 255, 255), 1)
     		
 
 			#Calculate for single_blink or double_blink
@@ -144,15 +144,21 @@ def main() :
     		# check to see if the eye aspect ratio is below the blink
     		# threshold, and if so, increment the blink frame counter
     		if ear < EYE_AR_THRESH:
-    			COUNTER += 1;driver.execute_script(f'document.getElementById("{id}").style.border="4px solid black"');id=nextButton(id)
+    			COUNTER += 1;#driver.execute_script(f'document.getElementById("{id}").style.border="thick solid red"');id=nextButton(id);driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"')
+    			
     
     		# otherwise, the eye aspect ratio is not below the blink
     		# threshold
     		else:
     			# if the eyes were closed for a sufficient number of
     			# then increment the total number of blinks
-    			if COUNTER >= EYE_AR_CONSEC_FRAMES+1:
-        				TOTAL += 1;button = driver.find_element_by_id(id);button.click();driver.execute_script(f'document.getElementById("{id}").style.border="thick solid red"');id=nextButton(id);driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"')	
+    			if COUNTER >= EYE_AR_CONSEC_FRAMES+5:
+        				TOTAL += 1;button = driver.find_element_by_id(id)
+        				button.click()
+    			elif COUNTER >= EYE_AR_CONSEC_FRAMES+1:
+    				driver.execute_script(f'document.getElementById("{id}").style.border="thick solid red"');id=nextButton(id);driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"')
+
+
     
     				#TOTAL += 1;button = driver.find_element_by_id(id);button.click();driver.execute_script(f'document.getElementById("{id}").style.border="4px solid #f22f46"')
     			
