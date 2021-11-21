@@ -25,7 +25,7 @@ driver = webdriver.Chrome("C:/webdrivers/chromedriver")
 driver.get("http://127.0.0.1:3000/index.html")
 time.sleep(2)
 id='button_1'
-driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"')
+driver.execute_script(f'document.getElementById("{id}").style.cssText="color: #000000;background-color: #d9cab3;transition: all 1000ms ease;cursor: pointer;"')
 
 def eye_aspect_ratio(eye):
 	# compute the euclidean distances between the two sets of
@@ -150,7 +150,8 @@ def main() :
     				TOTAL += 1;button = driver.find_element_by_id(id)
     				button.click()
     			elif COUNTER >= EYE_AR_CONSEC_FRAMES+2:
-    				driver.execute_script(f'document.getElementById("{id}").style.border="thick solid black"');id=nextButton(id);driver.execute_script(f'document.getElementById("{id}").style.border="thick solid white"')
+    				driver.execute_script(f'document.getElementById("{id}").style.cssText="color: white;background-color: black"');id=nextButton(id);driver.execute_script(f'document.getElementById("{id}").style.cssText="color: #000000;background-color: #d9cab3;transition: all 1000ms ease;cursor: pointer;"')
+
 
 
     
