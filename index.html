@@ -1,151 +1,324 @@
 <html>
-
-<head>
+  <head>
     <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            const button = document.getElementById("button_4");
-            const result = document.getElementById("result");
-            const main = document.getElementsByTagName("main")[0];
-            let listening = false;
-            const SpeechRecognition =
-                window.SpeechRecognition || window.webkitSpeechRecognition;
-            if (typeof SpeechRecognition !== "undefined") {
-                const recognition = new SpeechRecognition();
+      window.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("button_4");
+        const result = document.getElementById("result");
+        const main = document.getElementsByTagName("main")[0];
+        let listening = false;
+        const SpeechRecognition =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (typeof SpeechRecognition !== "undefined") {
+          const recognition = new SpeechRecognition();
 
-                const stop = () => {
-                    main.classList.remove("speaking");
-                    recognition.stop();
-                    button.textContent = "Start listening";
-                };
+          const stop = () => {
+            main.classList.remove("speaking");
+            recognition.stop();
+            button.textContent = "Start listening";
+          };
 
-                const start = () => {
-                    main.classList.add("speaking");
-                    recognition.start();
-                    button.textContent = "Stop listening";
-                };
+          const start = () => {
+            main.classList.add("speaking");
+            recognition.start();
+            button.textContent = "Stop listening";
+          };
 
-                const onResult = event => {
-                    result.innerHTML = "";
-                    for (const res of event.results) {
-                        const text = document.createTextNode(res[0].transcript);
-                        const p = document.createElement("p");
-                        if (res.isFinal) {
-                            p.classList.add("final");
-                            stop();
-                            listening = !listening;
-                        }
-                        p.appendChild(text);
-                        result.appendChild(p);
-                    }
-                };
-                recognition.interimResults = true;
-                recognition.continuous = true;
-                recognition.addEventListener("result", onResult);
-                button.addEventListener("click", event => {
-                    listening ? stop() : start();
-                    listening = !listening;
-                });
-            } else {
-                button.remove();
-                const message = document.getElementById("message");
-                message.removeAttribute("hidden");
-                message.setAttribute("aria-hidden", "false");
+          const onResult = (event) => {
+            result.innerHTML = "";
+            for (const res of event.results) {
+              const text = document.createTextNode(res[0].transcript);
+              const p = document.createElement("p");
+              if (res.isFinal) {
+                p.classList.add("final");
+                stop();
+                listening = !listening;
+              }
+              p.appendChild(text);
+              result.appendChild(p);
             }
-        });
-
-        function autoClick1() {
-            var b = document.getElementById('test')
-            var text = 'b1 '
-            b.innerHTML += text
+          };
+          recognition.interimResults = true;
+          recognition.continuous = true;
+          recognition.addEventListener("result", onResult);
+          button.addEventListener("click", (event) => {
+            listening ? stop() : start();
+            listening = !listening;
+          });
+        } else {
+          button.remove();
+          const message = document.getElementById("message");
+          message.removeAttribute("hidden");
+          message.setAttribute("aria-hidden", "false");
         }
+      });
 
-        function autoClick2() {
-            var b = document.getElementById('test')
-            var text = 'b2 '
-            b.innerHTML += text
-        }
+      function home() {
+        var arr = document.getElementsByClassName("content");
+        arr[0].style.display = "block";
+        arr[1].style.display = "none";
+        arr[2].style.display = "none";
+        arr[3].style.display = "none";
+        arr[4].style.display = "none";
+      }
 
-        function autoClick3() {
-            var b = document.getElementById('test')
-            var text = 'b3 '
-            b.innerHTML += text
-        }
+      function diabetes() {
+        var arr = document.getElementsByClassName("content");
+        arr[0].style.display = "none";
+        arr[1].style.display = "block";
+        arr[2].style.display = "none";
+        arr[3].style.display = "none";
+        arr[4].style.display = "none";
+      }
+
+      function heart() {
+        var arr = document.getElementsByClassName("content");
+        arr[0].style.display = "none";
+        arr[1].style.display = "none";
+        arr[2].style.display = "block";
+        arr[3].style.display = "none";
+        arr[4].style.display = "none";
+        arr[2].style.height = "150%";
+      }
+
+      function speech() {
+        var arr = document.getElementsByClassName("content");
+        arr[0].style.display = "none";
+        arr[1].style.display = "none";
+        arr[2].style.display = "none";
+        arr[3].style.display = "block";
+        arr[4].style.display = "none";
+      }
+
+      function contact() {
+        var arr = document.getElementsByClassName("content");
+        arr[0].style.display = "none";
+        arr[1].style.display = "none";
+        arr[2].style.display = "none";
+        arr[3].style.display = "none";
+        arr[4].style.display = "block";
+      }
     </script>
     <style>
-        main {
-            flex-grow: 2;
-            justify-content: space-around;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 12px;
-            margin-bottom: 2em;
-            padding-top: 4em;
-            text-align: center;
+      main {
+        flex-grow: 2;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 12px;
+        margin-bottom: 2em;
+        padding-top: 4em;
+        text-align: center;
+      }
+
+      @keyframes bg-pulse {
+        0% {
+          background-color: #fff;
         }
 
-        @keyframes bg-pulse {
-            0% {
-                background-color: #fff;
-            }
-
-            50% {
-                background-color: #c7ecee;
-            }
-
-            100% {
-                backgrouond-color: #fff;
-            }
+        50% {
+          background-color: #c7ecee;
         }
 
-        main.speaking {
-            animation: bg-pulse 1.5s alternate ease-in-out infinite;
+        100% {
+          backgrouond-color: #fff;
         }
+      }
 
-        #result {
-            color: #666;
-            font-style: italic;
-            text-align: center;
-        }
+      main.speaking {
+        animation: bg-pulse 1.5s alternate ease-in-out infinite;
+      }
 
-        #result .final {
-            color: #0d122b;
-            font-style: normal;
-        }
+      #result {
+        color: #666;
+        font-style: italic;
+        text-align: center;
+      }
 
-        button {
-            font-size: 18px;
-            font-weight: 200;
-            padding: 1em;
-            width: 200px;
-            background: transparent;
-            border: 4px solid #f22f46;
-            border-radius: 4px;
-            transition: all 0.4s ease 0s;
-            cursor: pointer;
-            color: #f22f46;
-            margin-bottom: 4em;
-        }
-
-        button:hover,
-        button:focus {
-            background: #f22f46;
-            color: #fff;
-        }
+      #result .final {
+        color: #0d122b;
+        font-style: normal;
+      }
     </style>
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-    <button id='button_1' onclick="autoClick1()">Auto Click</button>
-    <button id='button_2' onclick="autoClick2()">Auto Click</button>
-    <button id='button_3' onclick="autoClick3()">Auto Click</button>
-    <p id='test'></p>
-    <main>
-        <button id="button_4">Start listening</button>
+  <body>
+    <!-- Navbar -->
+    <div class="navbarContainer">
+      <div class="home">
+        <button id="button_1" class="btn" onclick="home()">Home</button>
+      </div>
+      <div class="buttons">
+        <div class="option">
+          <button id="button_2" class="btn" onclick="diabetes()">
+            Diabetes Monitor
+          </button>
+        </div>
+        <div class="option">
+          <button id="button_3" class="btn" onclick="heart()">
+            Heart Monitor
+          </button>
+        </div>
+        <div class="option">
+          <button id="button_4" class="btn" onclick="speech()">
+            Speech Recognition
+          </button>
+        </div>
+        <div class="option">
+          <button id="button_5" class="btn" onclick="contact()">
+            Emergency Contact
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div id="content-home" class="content">
+      <h1 class="heading">Home Page</h1>
+      <div class="list">
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            provident nulla eum dolorum nobis ipsum soluta corporis, ducimus
+            fugiat! Earum similique fuga perspiciatis maiores illum!
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+            dolor temporibus modi. Fugiat distinctio tempora a earum voluptatem,
+            dolorum, beatae, aut recusandae temporibus excepturi animi.
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
+            deserunt nobis possimus architecto vitae impedit eaque
+            exercitationem esse unde! Qui dolor aspernatur et possimus iste?
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="content-diabetes" class="content">
+      <div class="login">
+        <h1 class="heading">Diabetes Detection</h1>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="post">
+          <input
+            type="text"
+            name="Pregnancies"
+            placeholder="Pregnancies"
+            required
+          />
+          <input type="text" name="Glucose" placeholder="Glucose" required />
+          <input
+            type="text"
+            name="BloodPressure"
+            placeholder="BloodPressure"
+            required
+          />
+          <input
+            type="text"
+            name="SkinThickness"
+            placeholder="SkinThickness"
+            required
+          />
+          <input type="text" name="Insulin" placeholder="Insulin" required />
+          <input type="text" name="BMI" placeholder="BMI" required />
+          <input
+            type="text"
+            name="DiabetesPedigreeFunction"
+            placeholder="DiabetesPedigreeFunction"
+            required
+          />
+          <input type="text" name="Age" placeholder="Age" required />
+          <button type="submit" class="diabetes-btn">Predict</button>
+        </form>
+
+        <br />
+        <br />
+        {{ prediction_text }}
+      </div>
+    </div>
+
+    <div id="content-heart" class="content">
+      <div class="login">
+        <h1 class="heading">Heart Disease Detection</h1>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="post">
+          <input type="text" name="age" placeholder="age" required />
+
+          <input type="text" name="anaemia" placeholder="anaemia" required />
+
+          <input
+            type="text"
+            name="creatinine_phosphokinase"
+            placeholder="creatinine_phosphokinase"
+            required
+          />
+
+          <input type="text" name="diabetes" placeholder="diabetes" required />
+
+          <input
+            type="text"
+            name="ejection_fraction"
+            placeholder="ejection_fraction"
+            required
+          />
+
+          <input
+            type="text"
+            name="high_blood_pressure"
+            placeholder="high_blood_pressure"
+            required
+          />
+
+          <input
+            type="text"
+            name="platelets"
+            placeholder="platelets"
+            required
+          />
+
+          <input
+            type="text"
+            name="serum_creatinine"
+            placeholder="serum_creatinine"
+            required
+          />
+
+          <input
+            type="text"
+            name="serum_sodium"
+            placeholder="serum_sodium"
+            required
+          />
+
+          <input type="text" name="sex" placeholder="sex" required />
+
+          <input type="text" name="smoking" placeholder="smoking" required />
+
+          <input type="text" name="time" placeholder="time" required />
+
+          <button type="submit" class="heart-btn">Predict</button>
+        </form>
+        {{ prediction_text }}
+      </div>
+    </div>
+
+    <div id="content-speech" class="content">
+      <h1 class="heading">Speech Page</h1>
+      <main>
         <div id="result"></div>
         <p id="message" hidden aria-hidden="true">
-            Your browser doesn't support Speech Recognition. Sorry.
+          Your browser doesn't support Speech Recognition. Sorry.
         </p>
-    </main>
-</body>
+      </main>
+    </div>
 
+    <div id="content-contact" class="content">
+      <h1 class="heading">Emergency Contact Page</h1>
+    </div>
+
+    <!-- <p id="page"></p> -->
+  </body>
 </html>
