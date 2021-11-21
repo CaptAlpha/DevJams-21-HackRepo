@@ -1,57 +1,6 @@
 <html>
   <head>
     <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const button = document.getElementById("button_4");
-        const result = document.getElementById("result");
-        const main = document.getElementsByTagName("main")[0];
-        let listening = false;
-        const SpeechRecognition =
-          window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (typeof SpeechRecognition !== "undefined") {
-          const recognition = new SpeechRecognition();
-
-          const stop = () => {
-            main.classList.remove("speaking");
-            recognition.stop();
-            button.textContent = "Start listening";
-          };
-
-          const start = () => {
-            main.classList.add("speaking");
-            recognition.start();
-            button.textContent = "Stop listening";
-          };
-
-          const onResult = (event) => {
-            result.innerHTML = "";
-            for (const res of event.results) {
-              const text = document.createTextNode(res[0].transcript);
-              const p = document.createElement("p");
-              if (res.isFinal) {
-                p.classList.add("final");
-                stop();
-                listening = !listening;
-              }
-              p.appendChild(text);
-              result.appendChild(p);
-            }
-          };
-          recognition.interimResults = true;
-          recognition.continuous = true;
-          recognition.addEventListener("result", onResult);
-          button.addEventListener("click", (event) => {
-            listening ? stop() : start();
-            listening = !listening;
-          });
-        } else {
-          button.remove();
-          const message = document.getElementById("message");
-          message.removeAttribute("hidden");
-          message.setAttribute("aria-hidden", "false");
-        }
-      });
-
       function home() {
         var arr = document.getElementsByClassName("content");
         arr[0].style.display = "block";
@@ -174,26 +123,34 @@
 
     <!-- Content -->
     <div id="content-home" class="content">
-      <h1 class="heading">Home Page</h1>
+      <!-- <img src="./images/Screenshot 2021-11-21 at 12.50.49 PM.png" alt="" /> -->
+      <img src="./images/Screenshot 2021-11-21 at 12.51.04 PM.png" alt="" />
+      <!-- <h1 class="heading">Home Page</h1>
       <div class="list">
         <ul>
           <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-            provident nulla eum dolorum nobis ipsum soluta corporis, ducimus
-            fugiat! Earum similique fuga perspiciatis maiores illum!
+            We navigate through out the web application using detections of
+            blinks
           </li>
           <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-            dolor temporibus modi. Fugiat distinctio tempora a earum voluptatem,
-            dolorum, beatae, aut recusandae temporibus excepturi animi.
+            A short blink refers to next option whereas a long blink can be used
+            to select a button
           </li>
           <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-            deserunt nobis possimus architecto vitae impedit eaque
-            exercitationem esse unde! Qui dolor aspernatur et possimus iste?
+            Scanning of various health parameters using sensors from smart
+            watches
+          </li>
+          <li>Using third party API calls to access resources on the web</li>
+          <li>
+            Trained ML Models to scan for diseases such as heart failures and
+            diabetes.
+          </li>
+          <li>
+            Contact Emergency contacts in times for serious emergencies using
+            automated whatsapp messages
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
 
     <div id="content-diabetes" class="content">
@@ -306,13 +263,24 @@
     </div>
 
     <div id="content-speech" class="content">
-      <h1 class="heading">Speech Page</h1>
+      <h1 class="heading">Speak to search Youtube</h1>
       <main>
         <div id="result"></div>
         <p id="message" hidden aria-hidden="true">
           Your browser doesn't support Speech Recognition. Sorry.
         </p>
       </main>
+
+      <div class="form-container">
+        <form id="yt_form">
+          <!-- <input type="text" id="search" /> -->
+          <input type="submit" value="Search" id="yt_submit" />
+        </form>
+      </div>
+
+      <div class="row">
+        <div id="videos"></div>
+      </div>
     </div>
 
     <div id="content-contact" class="content">
@@ -321,4 +289,6 @@
 
     <!-- <p id="page"></p> -->
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./script.js"></script>
 </html>
