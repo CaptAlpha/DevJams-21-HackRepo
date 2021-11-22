@@ -17,6 +17,9 @@
         arr[2].style.display = "none";
         arr[3].style.display = "none";
         arr[4].style.display = "none";
+        setTimeout(() => {
+          diabetes_values();
+        }, 1000);
       }
 
       function heart() {
@@ -27,6 +30,9 @@
         arr[3].style.display = "none";
         arr[4].style.display = "none";
         arr[2].style.height = "150%";
+        setTimeout(() => {
+          heart_values();
+        }, 1000);
       }
 
       function speech() {
@@ -93,6 +99,16 @@
       }
     </style>
     <link rel="stylesheet" href="../static/style.css" />
+    <link
+      href="http://fonts.cdnfonts.com/css/monument-extended"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -181,38 +197,70 @@
 
         <!-- Main Input For Receiving Query to our ML -->
         <form
+          name="dia_form"
           action="{{ url_for('predict_diabetes')}}"
           method="post"
           id="diabetes_form"
         >
-          <input
-            type="text"
-            name="Pregnancies"
-            placeholder="Pregnancies"
-            required
-          />
-          <input type="text" name="Glucose" placeholder="Glucose" required />
-          <input
-            type="text"
-            name="BloodPressure"
-            placeholder="BloodPressure"
-            required
-          />
-          <input
-            type="text"
-            name="SkinThickness"
-            placeholder="SkinThickness"
-            required
-          />
-          <input type="text" name="Insulin" placeholder="Insulin" required />
-          <input type="text" name="BMI" placeholder="BMI" required />
-          <input
-            type="text"
-            name="DiabetesPedigreeFunction"
-            placeholder="DiabetesPedigreeFunction"
-            required
-          />
-          <input type="text" name="Age" placeholder="Age" required />
+          <div class="formWrapper">
+            <input
+              class="dia_inp"
+              type="text"
+              name="Pregnancies"
+              placeholder="Pregnancies"
+              required
+            />
+            <input
+              class="dia_inp"
+              type="text"
+              name="Glucose"
+              placeholder="Glucose"
+              required
+            />
+            <input
+              class="dia_inp"
+              type="text"
+              name="BloodPressure"
+              placeholder="BloodPressure"
+              required
+            />
+            <input
+              class="dia_inp"
+              type="text"
+              name="SkinThickness"
+              placeholder="SkinThickness"
+              required
+            />
+            <input
+              class="dia_inp"
+              type="text"
+              name="Insulin"
+              placeholder="Insulin"
+              required
+            />
+            <input
+              class="dia_inp"
+              type="text"
+              name="BMI"
+              placeholder="BMI"
+              required
+            />
+            <input
+              class="dia_inp"
+              type="text"
+              name="DiabetesPedigreeFunction"
+              placeholder="DiabetesPedigreeFunction"
+              required
+            />
+            <input
+              class="dia_inp"
+              type="text"
+              name="Age"
+              placeholder="Age"
+              required
+            />
+          </div>
+
           <button type="submit" class="diabetes-btn">Predict</button>
         </form>
         <p style="font-size: xx-large; text-align: center">
@@ -221,69 +269,123 @@
       </div>
     </div>
 
+    <script>
+      const diabetes_values = () => {
+        const form = document.forms["dia_form"];
+
+        form.elements["Pregnancies"].value = getRandomInt(6.0);
+        setTimeout(() => {
+          form.elements["Glucose"].value = getRandomInt(148.0);
+        }, 1500);
+        setTimeout(() => {
+          form.elements["BloodPressure"].value = getRandomInt(72.0);
+        }, 2000);
+        setTimeout(() => {
+          form.elements["SkinThickness"].value = getRandomInt(35.0);
+        }, 2500);
+        setTimeout(() => {
+          form.elements["Insulin"].value = getRandomInt2(0.0);
+        }, 3200);
+        setTimeout(() => {
+          form.elements["BMI"].value = getRandomInt(33.6);
+        }, 3800);
+        setTimeout(() => {
+          form.elements["DiabetesPedigreeFunction"].value =
+            getRandomInt3(0.627);
+        }, 4200);
+        setTimeout(() => {
+          form.elements["Age"].value = getRandomInt(50.0);
+        }, 5300);
+        setTimeout(() => {
+          document.getElementsByClassName("diabetes-btn")[0].click();
+        }, 5500);
+      };
+
+      function getRandomInt(val) {
+        var num = Math.random() * (val + 5 - (val - 5)) + (val - 5);
+        return num.toFixed(1);
+      }
+      function getRandomInt2(val) {
+        var num = Math.random() * (800 - 50) + 50;
+        return num.toFixed(1);
+      }
+      function getRandomInt3(val) {
+        var num = Math.random() * (val + 0.5);
+        return num.toFixed(3);
+      }
+    </script>
+
     <div id="content-heart" class="content">
       <div class="login">
         <h1 class="heading">Heart Disease Detection</h1>
 
         <!-- Main Input For Receiving Query to our ML -->
         <form
+          name="heart_form"
           action="{{ url_for('predict_heart')}}"
           method="post"
           id="heart_form"
         >
-          <input type="text" name="age" placeholder="age" required />
+          <div class="formWrapper">
+            <input type="text" name="age" placeholder="age" required />
 
-          <input type="text" name="anaemia" placeholder="anaemia" required />
+            <input type="text" name="anaemia" placeholder="anaemia" required />
 
-          <input
-            type="text"
-            name="creatinine_phosphokinase"
-            placeholder="creatinine_phosphokinase"
-            required
-          />
+            <input
+              type="text"
+              name="creatinine_phosphokinase"
+              placeholder="creatinine_phosphokinase"
+              required
+            />
 
-          <input type="text" name="diabetes" placeholder="diabetes" required />
+            <input
+              type="text"
+              name="diabetes"
+              placeholder="diabetes"
+              required
+            />
 
-          <input
-            type="text"
-            name="ejection_fraction"
-            placeholder="ejection_fraction"
-            required
-          />
+            <input
+              type="text"
+              name="ejection_fraction"
+              placeholder="ejection_fraction"
+              required
+            />
 
-          <input
-            type="text"
-            name="high_blood_pressure"
-            placeholder="high_blood_pressure"
-            required
-          />
+            <input
+              type="text"
+              name="high_blood_pressure"
+              placeholder="high_blood_pressure"
+              required
+            />
 
-          <input
-            type="text"
-            name="platelets"
-            placeholder="platelets"
-            required
-          />
+            <input
+              type="text"
+              name="platelets"
+              placeholder="platelets"
+              required
+            />
 
-          <input
-            type="text"
-            name="serum_creatinine"
-            placeholder="serum_creatinine"
-            required
-          />
+            <input
+              type="text"
+              name="serum_creatinine"
+              placeholder="serum_creatinine"
+              required
+            />
 
-          <input
-            type="text"
-            name="serum_sodium"
-            placeholder="serum_sodium"
-            required
-          />
+            <input
+              type="text"
+              name="serum_sodium"
+              placeholder="serum_sodium"
+              required
+            />
 
-          <input type="text" name="sex" placeholder="sex" required />
+            <input type="text" name="sex" placeholder="sex" required />
 
-          <input type="text" name="smoking" placeholder="smoking" required />
+            <input type="text" name="smoking" placeholder="smoking" required />
 
-          <input type="text" name="time" placeholder="time" required />
+            <input type="text" name="time" placeholder="time" required />
+          </div>
 
           <button type="submit" class="heart-btn">Predict</button>
         </form>
@@ -292,6 +394,67 @@
         </p>
       </div>
     </div>
+
+    <script>
+      const heart_values = () => {
+        const form = document.forms["heart_form"];
+
+        form.elements["age"].value = getRandomInt(75.0);
+        setTimeout(() => {
+          form.elements["anaemia"].value = getRandomInt2(0.0);
+        }, 1500);
+        setTimeout(() => {
+          form.elements["creatinine_phosphokinase"].value = getRandomInt(582.0);
+        }, 2000);
+        setTimeout(() => {
+          form.elements["diabetes"].value = getRandomInt2(0.0);
+        }, 2500);
+        setTimeout(() => {
+          form.elements["ejection_fraction"].value = getRandomInt(20.0);
+        }, 3200);
+        setTimeout(() => {
+          form.elements["high_blood_pressure"].value = getRandomInt2(1.0);
+        }, 3800);
+        setTimeout(() => {
+          form.elements["platelets"].value = getRandomInt3(265000);
+        }, 4200);
+        setTimeout(() => {
+          form.elements["serum_creatinine"].value = getRandomInt4(1.9);
+        }, 5300);
+        setTimeout(() => {
+          form.elements["serum_sodium"].value = getRandomInt(130.0);
+        }, 5700);
+        setTimeout(() => {
+          form.elements["sex"].value = getRandomInt2(1.0);
+        }, 6100);
+        setTimeout(() => {
+          form.elements["smoking"].value = getRandomInt2(0.0);
+        }, 6800);
+        setTimeout(() => {
+          form.elements["time"].value = getRandomInt(10.1);
+        }, 7500);
+        setTimeout(() => {
+          document.getElementsByClassName("heart-btn")[0].click();
+        }, 8000);
+      };
+
+      function getRandomInt(val) {
+        var num = Math.random() * (val + 5 - (val - 5)) + (val - 5);
+        return num.toFixed(1);
+      }
+      function getRandomInt2(val) {
+        var num = Math.floor(Math.random() * (1.9 - 0)) + 0;
+        return num.toFixed(1);
+      }
+      function getRandomInt3(val) {
+        var num = Math.random() * (val + 50000 - (val - 50000)) + (val - 50000);
+        return num.toFixed(3);
+      }
+      function getRandomInt4(val) {
+        var num = Math.random() * (val + 1.25 - (val - 1.25)) + (val - 1.25);
+        return num.toFixed(1);
+      }
+    </script>
 
     <div id="content-speech" class="content">
       <h1 class="heading">Speak to search Youtube</h1>
