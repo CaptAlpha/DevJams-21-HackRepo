@@ -12,27 +12,33 @@
 
       function diabetes() {
         var arr = document.getElementsByClassName("content");
+        diabetes_bool = document.getElementById("diabetes_bool").innerText;
         arr[0].style.display = "none";
         arr[1].style.display = "block";
         arr[2].style.display = "none";
         arr[3].style.display = "none";
         arr[4].style.display = "none";
-        setTimeout(() => {
-          diabetes_values();
-        }, 1000);
+        if (diabetes_bool != 1) {
+          setTimeout(() => {
+            diabetes_values();
+          }, 1000);
+        }
       }
 
       function heart() {
         var arr = document.getElementsByClassName("content");
+        heart_bool = document.getElementById("heart_bool").innerText;
         arr[0].style.display = "none";
         arr[1].style.display = "none";
         arr[2].style.display = "block";
         arr[3].style.display = "none";
         arr[4].style.display = "none";
         arr[2].style.height = "150%";
-        setTimeout(() => {
-          heart_values();
-        }, 1000);
+        if (heart_bool != 1) {
+          setTimeout(() => {
+            heart_values();
+          }, 1000);
+        }
       }
 
       function speech() {
@@ -106,9 +112,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&family=Poppins:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&family=Poppins&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="static\Blinkerz.png" type="image/x-icon" />
   </head>
 
   <body>
@@ -130,7 +137,7 @@
         </div>
         <div class="option">
           <button id="button_4" class="btn" onclick="speech()">
-            Youtube Search
+            Speech Recognition
           </button>
         </div>
         <div class="option">
@@ -142,7 +149,6 @@
     </div>
 
     <!-- Content -->
-
     <div id="content-home" class="content">
       <div class="circle">.</div>
       <div class="circle2">.</div>
@@ -221,51 +227,10 @@
           </div>
         </div>
       </div>
-
       <div id="test" style="display: none">
         <p id="diabetes_bool">{{ diabetes_bool }}</p>
         <p id="heart_bool">{{ heart_bool }}</p>
       </div>
-      <script>
-        diabetes_bool = document.getElementById("diabetes_bool").innerText;
-        heart_bool = document.getElementById("heart_bool").innerText;
-
-        if (parseInt(diabetes_bool) == 1)
-          setTimeout(function () {
-            document.getElementById("button_2").click();
-          }, 1);
-
-        if (parseInt(heart_bool) == 1)
-          setTimeout(function () {
-            document.getElementById("button_3").click();
-          }, 1);
-      </script>
-      <!-- <h1 class="heading">Home Page</h1>
-      <div class="list">
-        <ul>
-          <li>
-            We navigate through out the web application using detections of
-            blinks
-          </li>
-          <li>
-            A short blink refers to next option whereas a long blink can be used
-            to select a button
-          </li>
-          <li>
-            Scanning of various health parameters using sensors from smart
-            watches
-          </li>
-          <li>Using third party API calls to access resources on the web</li>
-          <li>
-            Trained ML Models to scan for diseases such as heart failures and
-            diabetes.
-          </li>
-          <li>
-            Contact Emergency contacts in times for serious emergencies using
-            automated whatsapp messages
-          </li>
-        </ul>
-      </div> -->
     </div>
 
     <div id="content-diabetes" class="content">
@@ -384,10 +349,12 @@
         var num = Math.random() * (val + 5 - (val - 5)) + (val - 5);
         return num.toFixed(1);
       }
+
       function getRandomInt2(val) {
         var num = Math.random() * (800 - 50) + 50;
         return num.toFixed(1);
       }
+
       function getRandomInt3(val) {
         var num = Math.random() * (val + 0.5);
         return num.toFixed(3);
@@ -396,7 +363,7 @@
 
     <div id="content-heart" class="content">
       <div class="circle">.</div>
-      <div class="circle2">.</div>
+      <div class="circle2 circle2heart">.</div>
       <div class="login">
         <h1 class="heading">Heart Disease Detection</h1>
 
@@ -523,14 +490,17 @@
         var num = Math.random() * (val + 5 - (val - 5)) + (val - 5);
         return num.toFixed(1);
       }
+
       function getRandomInt2(val) {
         var num = Math.floor(Math.random() * (1.9 - 0)) + 0;
         return num.toFixed(1);
       }
+
       function getRandomInt3(val) {
         var num = Math.random() * (val + 50000 - (val - 50000)) + (val - 50000);
         return num.toFixed(3);
       }
+
       function getRandomInt4(val) {
         var num = Math.random() * (val + 1.25 - (val - 1.25)) + (val - 1.25);
         return num.toFixed(1);
@@ -562,7 +532,7 @@
     <div id="content-contact" class="content">
       <div class="circle2">.</div>
       <h1 class="heading">Emergency Contact Page</h1>
-      <h1 class="subheading">Redirecting to Whatsapp...</h1>
+      <h1>Redirecting to Whatsapp...</h1>
 
       <a
         id="emergency-contact-atag"
