@@ -62,7 +62,7 @@ Deploying the app. Deploying the software
 
 - Python 3.8.10 and the latest version of pip.
   
-## How to use the app:
+## Install the App:
 
 1. Fork it.
 
@@ -80,6 +80,9 @@ Deploying the app. Deploying the software
     python blinkerz.py
    ```
 
+## Instructions: 
+1. Short Blink to move to next tab 
+2. Long Blink to click on the tab
 
 
 ##  Our Project:
