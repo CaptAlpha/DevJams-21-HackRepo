@@ -14,10 +14,6 @@ Aviral Jain   | Team Lead (Backend & ML)
 Vidipt Khetriwal  |  Frontend
 Arhit  |  Backend & ML
 
-
-
-
-
 ##  Overview of the Project
 
 >One stop solution for all accessing the internet at the blink of an eye. Simple Web App with an automation software to cater needs of education, entertainment, and health.
@@ -84,13 +80,18 @@ Deploying the app. Deploying the software
 1. Short Blink to move to next tab 
 2. Long Blink to click on the tab
 
+## Features:
+1. Diabetes detection
+2. Heart risk detection
+3. Youtube search using voice command
+4. Emergency contact using whatsapp
 
 ##  Our Project:
-![markdown logo](static/hone.png)
+![markdown logo](static/home.png)
 ![markdown logo](static/diabetes.png)
 ![markdown logo](static/heart.png)
-![markdown logo](static/software.png)
-![markdown logo](static/emergency-contacts.png)
+![markdown logo](static/youtube.png)
+![markdown logo](static/whatsapp.png)
 
 
 

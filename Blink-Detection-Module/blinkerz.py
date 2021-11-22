@@ -21,7 +21,7 @@ def nextButton(id):
     id=tempArr[0]+'_'+str(tempNum)
     return id
 
-driver = webdriver.Chrome("D:/webdriver/chromedriver")
+driver = webdriver.Chrome("C:/webdrivers/chromedriver")
 driver.get("https://blinkerz-webapp.herokuapp.com/")
 time.sleep(2)
 id='button_1'
