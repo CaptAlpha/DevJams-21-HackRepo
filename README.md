@@ -5,7 +5,7 @@ Public Repo For DevJams'21
 ## Track: Digital Accessibility
 Project Presented by TEAM : Blinkers
 
-![markdown logo](static\Blinkerz.png)
+![markdown logo](static/Blinkerz.png)
 
 # Our Team
 Member | Role
