@@ -67,7 +67,8 @@ Deploying the app. Deploying the software
    git clone https://github.com/CaptAlpha/DevJams-21-HackRepo.git
    ```
 3. Install `requirements.txt`
-   ```cd Blink-Detection-Module
+   ```
+   cd Blink-Detection-Module
    pip install -r requirements.txt
    ```
 4. Run `blinkerz.py`
