@@ -1,170 +1,171 @@
 <html>
-  <head>
-    <script>
-      function home() {
-        var arr = document.getElementsByClassName("content");
-        arr[0].style.display = "block";
-        arr[1].style.display = "none";
-        arr[2].style.display = "none";
-        arr[3].style.display = "none";
-        arr[4].style.display = "none";
-      }
 
-      function diabetes() {
-        var arr = document.getElementsByClassName("content");
-        arr[0].style.display = "none";
-        arr[1].style.display = "block";
-        arr[2].style.display = "none";
-        arr[3].style.display = "none";
-        arr[4].style.display = "none";
+<head>
+  <script>
+    function home() {
+      var arr = document.getElementsByClassName("content");
+      arr[0].style.display = "block";
+      arr[1].style.display = "none";
+      arr[2].style.display = "none";
+      arr[3].style.display = "none";
+      arr[4].style.display = "none";
+    }
+
+    function diabetes() {
+      var arr = document.getElementsByClassName("content");
+      diabetes_bool = document.getElementById("diabetes_bool").innerText;
+      arr[0].style.display = "none";
+      arr[1].style.display = "block";
+      arr[2].style.display = "none";
+      arr[3].style.display = "none";
+      arr[4].style.display = "none";
+      if (diabetes_bool != 1) {
         setTimeout(() => {
           diabetes_values();
         }, 1000);
       }
+    }
 
-      function heart() {
-        var arr = document.getElementsByClassName("content");
-        arr[0].style.display = "none";
-        arr[1].style.display = "none";
-        arr[2].style.display = "block";
-        arr[3].style.display = "none";
-        arr[4].style.display = "none";
-        arr[2].style.height = "150%";
+    function heart() {
+      var arr = document.getElementsByClassName("content");
+      heart_bool = document.getElementById("heart_bool").innerText;
+      arr[0].style.display = "none";
+      arr[1].style.display = "none";
+      arr[2].style.display = "block";
+      arr[3].style.display = "none";
+      arr[4].style.display = "none";
+      arr[2].style.height = "150%";
+      if (heart_bool != 1) {
         setTimeout(() => {
           heart_values();
         }, 1000);
       }
+    }
 
-      function speech() {
-        var arr = document.getElementsByClassName("content");
-        arr[0].style.display = "none";
-        arr[1].style.display = "none";
-        arr[2].style.display = "none";
-        arr[3].style.display = "block";
-        arr[4].style.display = "none";
-      }
+    function speech() {
+      var arr = document.getElementsByClassName("content");
+      arr[0].style.display = "none";
+      arr[1].style.display = "none";
+      arr[2].style.display = "none";
+      arr[3].style.display = "block";
+      arr[4].style.display = "none";
+    }
 
-      function contact() {
-        var arr = document.getElementsByClassName("content");
-        arr[0].style.display = "none";
-        arr[1].style.display = "none";
-        arr[2].style.display = "none";
-        arr[3].style.display = "none";
-        arr[4].style.display = "block";
+    function contact() {
+      var arr = document.getElementsByClassName("content");
+      arr[0].style.display = "none";
+      arr[1].style.display = "none";
+      arr[2].style.display = "none";
+      arr[3].style.display = "none";
+      arr[4].style.display = "block";
 
-        setTimeout(() => {
-          document.getElementById("emergency-contact-atag").click();
-        }, 2000);
-      }
-    </script>
-    <style>
-      main {
-        flex-grow: 2;
-        justify-content: space-around;
-        align-items: center;
+      setTimeout(() => {
+        document.getElementById("emergency-contact-atag").click();
+      }, 2000);
+    }
+  </script>
+  <style>
+    main {
+      flex-grow: 2;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 12px;
+      margin-bottom: 2em;
+      padding-top: 4em;
+      text-align: center;
+    }
+
+    @keyframes bg-pulse {
+      0% {
         background-color: #fff;
-        border-radius: 12px;
-        margin-bottom: 2em;
-        padding-top: 4em;
-        text-align: center;
       }
 
-      @keyframes bg-pulse {
-        0% {
-          background-color: #fff;
-        }
-
-        50% {
-          background-color: #c7ecee;
-        }
-
-        100% {
-          backgrouond-color: #fff;
-        }
+      50% {
+        background-color: #c7ecee;
       }
 
-      main.speaking {
-        animation: bg-pulse 1.5s alternate ease-in-out infinite;
+      100% {
+        backgrouond-color: #fff;
       }
+    }
 
-      #result {
-        color: #666;
-        font-style: italic;
-        text-align: center;
-      }
+    main.speaking {
+      animation: bg-pulse 1.5s alternate ease-in-out infinite;
+    }
 
-      #result .final {
-        color: #0d122b;
-        font-style: normal;
-      }
-    </style>
-    <link rel="stylesheet" href="../static/style.css" />
-    <link
-      href="http://fonts.cdnfonts.com/css/monument-extended"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="static\Blinkerz.png" type="image/x-icon">
-  </head>
+    #result {
+      color: #666;
+      font-style: italic;
+      text-align: center;
+    }
 
-  <body>
-    <!-- Navbar -->
-    <div class="navbarContainer">
-      <div class="home">
-        <button id="button_1" class="btn" onclick="home()">Home</button>
+    #result .final {
+      color: #0d122b;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="../static/style.css" />
+  <link href="http://fonts.cdnfonts.com/css/monument-extended" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&family=Poppins&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="static\Blinkerz.png" type="image/x-icon">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbarContainer">
+    <div class="home">
+      <button id="button_1" class="btn" onclick="home()">Home</button>
+    </div>
+    <div class="buttons">
+      <div class="option">
+        <button id="button_2" class="btn" onclick="diabetes()">
+          Diabetes Monitor
+        </button>
       </div>
-      <div class="buttons">
-        <div class="option">
-          <button id="button_2" class="btn" onclick="diabetes()">
-            Diabetes Monitor
-          </button>
-        </div>
-        <div class="option">
-          <button id="button_3" class="btn" onclick="heart()">
-            Heart Monitor
-          </button>
-        </div>
-        <div class="option">
-          <button id="button_4" class="btn" onclick="speech()">
-            Speech Recognition
-          </button>
-        </div>
-        <div class="option">
-          <button id="button_5" class="btn" onclick="contact()">
-            Emergency Contact
-          </button>
-        </div>
+      <div class="option">
+        <button id="button_3" class="btn" onclick="heart()">
+          Heart Monitor
+        </button>
+      </div>
+      <div class="option">
+        <button id="button_4" class="btn" onclick="speech()">
+          Speech Recognition
+        </button>
+      </div>
+      <div class="option">
+        <button id="button_5" class="btn" onclick="contact()">
+          Emergency Contact
+        </button>
       </div>
     </div>
+  </div>
 
-    <!-- Content -->
-    <div id="content-home" class="content">
-      <!-- <img src="./images/Screenshot 2021-11-21 at 12.50.49 PM.png" alt="" /> -->
-      <img src="../static/Screenshot 2021-11-21 at 12.51.04 PM.png" alt="" />
-      <div id="test" style="display: none">
-        <p id="diabetes_bool">{{ diabetes_bool }}</p>
-        <p id="heart_bool">{{ heart_bool }}</p>
-      </div>
-      <script>
-        diabetes_bool = document.getElementById("diabetes_bool").innerText;
-        heart_bool = document.getElementById("heart_bool").innerText;
+  <!-- Content -->
+  <div id="content-home" class="content">
+    <img src="../static/Screenshot 2021-11-21 at 12.51.04 PM.png" alt="" />
+    <div id="test" style="display: none">
+      <p id="diabetes_bool">{{ diabetes_bool }}</p>
+      <p id="heart_bool">{{ heart_bool }}</p>
+    </div>
+    <script>
+      diabetes_bool = document.getElementById("diabetes_bool").innerText;
+      heart_bool = document.getElementById("heart_bool").innerText;
 
-        if (parseInt(diabetes_bool) == 1)
-          setTimeout(function () {
-            document.getElementById("button_2").click();
-          }, 1);
+      if (parseInt(diabetes_bool) == 1)
+        setTimeout(function () {
+          document.getElementById("button_2").click();
+        }, 1);
 
-        if (parseInt(heart_bool) == 1)
-          setTimeout(function () {
-            document.getElementById("button_3").click();
-          }, 1);
-      </script>
-      <!-- <h1 class="heading">Home Page</h1>
+      if (parseInt(heart_bool) == 1)
+        setTimeout(function () {
+          document.getElementById("button_3").click();
+        }, 1);
+    </script>
+    <!-- <h1 class="heading">Home Page</h1>
       <div class="list">
         <ul>
           <li>
@@ -190,308 +191,218 @@
           </li>
         </ul>
       </div> -->
+  </div>
+
+  <div id="content-diabetes" class="content">
+    <div class="login">
+      <h1 class="heading">Diabetes Detection</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form name="dia_form" action="{{ url_for('predict_diabetes')}}" method="post" id="diabetes_form">
+        <div class="formWrapper">
+          <input class="dia_inp" type="text" name="Pregnancies" placeholder="Pregnancies" required />
+          <input class="dia_inp" type="text" name="Glucose" placeholder="Glucose" required />
+          <input class="dia_inp" type="text" name="BloodPressure" placeholder="BloodPressure" required />
+          <input class="dia_inp" type="text" name="SkinThickness" placeholder="SkinThickness" required />
+          <input class="dia_inp" type="text" name="Insulin" placeholder="Insulin" required />
+          <input class="dia_inp" type="text" name="BMI" placeholder="BMI" required />
+          <input class="dia_inp" type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction"
+            required />
+          <input class="dia_inp" type="text" name="Age" placeholder="Age" required />
+        </div>
+
+        <button type="submit" class="diabetes-btn">Predict</button>
+      </form>
+      <p style="font-size: xx-large; text-align: center">
+        {{ diabetes_prediction }}
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const diabetes_values = () => {
+      const form = document.forms["dia_form"];
+
+      form.elements["Pregnancies"].value = getRandomInt(6.0);
+      setTimeout(() => {
+        form.elements["Glucose"].value = getRandomInt(148.0);
+      }, 1500);
+      setTimeout(() => {
+        form.elements["BloodPressure"].value = getRandomInt(72.0);
+      }, 2000);
+      setTimeout(() => {
+        form.elements["SkinThickness"].value = getRandomInt(35.0);
+      }, 2500);
+      setTimeout(() => {
+        form.elements["Insulin"].value = getRandomInt2(0.0);
+      }, 3200);
+      setTimeout(() => {
+        form.elements["BMI"].value = getRandomInt(33.6);
+      }, 3800);
+      setTimeout(() => {
+        form.elements["DiabetesPedigreeFunction"].value =
+          getRandomInt3(0.627);
+      }, 4200);
+      setTimeout(() => {
+        form.elements["Age"].value = getRandomInt(50.0);
+      }, 5300);
+      setTimeout(() => {
+        document.getElementsByClassName("diabetes-btn")[0].click();
+      }, 5500);
+    };
+
+    function getRandomInt(val) {
+      var num = Math.random() * (val + 5 - (val - 5)) + (val - 5);
+      return num.toFixed(1);
+    }
+
+    function getRandomInt2(val) {
+      var num = Math.random() * (800 - 50) + 50;
+      return num.toFixed(1);
+    }
+
+    function getRandomInt3(val) {
+      var num = Math.random() * (val + 0.5);
+      return num.toFixed(3);
+    }
+  </script>
+
+  <div id="content-heart" class="content">
+    <div class="login">
+      <h1 class="heading">Heart Disease Detection</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form name="heart_form" action="{{ url_for('predict_heart')}}" method="post" id="heart_form">
+        <div class="formWrapper">
+          <input type="text" name="age" placeholder="age" required />
+
+          <input type="text" name="anaemia" placeholder="anaemia" required />
+
+          <input type="text" name="creatinine_phosphokinase" placeholder="creatinine_phosphokinase" required />
+
+          <input type="text" name="diabetes" placeholder="diabetes" required />
+
+          <input type="text" name="ejection_fraction" placeholder="ejection_fraction" required />
+
+          <input type="text" name="high_blood_pressure" placeholder="high_blood_pressure" required />
+
+          <input type="text" name="platelets" placeholder="platelets" required />
+
+          <input type="text" name="serum_creatinine" placeholder="serum_creatinine" required />
+
+          <input type="text" name="serum_sodium" placeholder="serum_sodium" required />
+
+          <input type="text" name="sex" placeholder="sex" required />
+
+          <input type="text" name="smoking" placeholder="smoking" required />
+
+          <input type="text" name="time" placeholder="time" required />
+        </div>
+
+        <button type="submit" class="heart-btn">Predict</button>
+      </form>
+      <p style="font-size: xx-large; text-align: center">
+        {{ heart_prediction }}
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const heart_values = () => {
+      const form = document.forms["heart_form"];
+
+      form.elements["age"].value = getRandomInt(75.0);
+      setTimeout(() => {
+        form.elements["anaemia"].value = getRandomInt2(0.0);
+      }, 1500);
+      setTimeout(() => {
+        form.elements["creatinine_phosphokinase"].value = getRandomInt(582.0);
+      }, 2000);
+      setTimeout(() => {
+        form.elements["diabetes"].value = getRandomInt2(0.0);
+      }, 2500);
+      setTimeout(() => {
+        form.elements["ejection_fraction"].value = getRandomInt(20.0);
+      }, 3200);
+      setTimeout(() => {
+        form.elements["high_blood_pressure"].value = getRandomInt2(1.0);
+      }, 3800);
+      setTimeout(() => {
+        form.elements["platelets"].value = getRandomInt3(265000);
+      }, 4200);
+      setTimeout(() => {
+        form.elements["serum_creatinine"].value = getRandomInt4(1.9);
+      }, 5300);
+      setTimeout(() => {
+        form.elements["serum_sodium"].value = getRandomInt(130.0);
+      }, 5700);
+      setTimeout(() => {
+        form.elements["sex"].value = getRandomInt2(1.0);
+      }, 6100);
+      setTimeout(() => {
+        form.elements["smoking"].value = getRandomInt2(0.0);
+      }, 6800);
+      setTimeout(() => {
+        form.elements["time"].value = getRandomInt(10.1);
+      }, 7500);
+      setTimeout(() => {
+        document.getElementsByClassName("heart-btn")[0].click();
+      }, 8000);
+    };
+
+    function getRandomInt(val) {
+      var num = Math.random() * (val + 5 - (val - 5)) + (val - 5);
+      return num.toFixed(1);
+    }
+
+    function getRandomInt2(val) {
+      var num = Math.floor(Math.random() * (1.9 - 0)) + 0;
+      return num.toFixed(1);
+    }
+
+    function getRandomInt3(val) {
+      var num = Math.random() * (val + 50000 - (val - 50000)) + (val - 50000);
+      return num.toFixed(3);
+    }
+
+    function getRandomInt4(val) {
+      var num = Math.random() * (val + 1.25 - (val - 1.25)) + (val - 1.25);
+      return num.toFixed(1);
+    }
+  </script>
+
+  <div id="content-speech" class="content">
+    <h1 class="heading">Speak to search Youtube</h1>
+    <main>
+      <div id="result"></div>
+      <p id="message" hidden aria-hidden="true">
+        Your browser doesn't support Speech Recognition. Sorry.
+      </p>
+    </main>
+
+    <div class="form-container">
+      <form id="yt_form">
+        <!-- <input type="text" id="search" /> -->
+        <input type="submit" value="Search" id="yt_submit" />
+      </form>
     </div>
 
-    <div id="content-diabetes" class="content">
-      <div class="login">
-        <h1 class="heading">Diabetes Detection</h1>
-
-        <!-- Main Input For Receiving Query to our ML -->
-        <form
-          name="dia_form"
-          action="{{ url_for('predict_diabetes')}}"
-          method="post"
-          id="diabetes_form"
-        >
-          <div class="formWrapper">
-            <input
-              class="dia_inp"
-              type="text"
-              name="Pregnancies"
-              placeholder="Pregnancies"
-              required
-            />
-            <input
-              class="dia_inp"
-              type="text"
-              name="Glucose"
-              placeholder="Glucose"
-              required
-            />
-            <input
-              class="dia_inp"
-              type="text"
-              name="BloodPressure"
-              placeholder="BloodPressure"
-              required
-            />
-            <input
-              class="dia_inp"
-              type="text"
-              name="SkinThickness"
-              placeholder="SkinThickness"
-              required
-            />
-            <input
-              class="dia_inp"
-              type="text"
-              name="Insulin"
-              placeholder="Insulin"
-              required
-            />
-            <input
-              class="dia_inp"
-              type="text"
-              name="BMI"
-              placeholder="BMI"
-              required
-            />
-            <input
-              class="dia_inp"
-              type="text"
-              name="DiabetesPedigreeFunction"
-              placeholder="DiabetesPedigreeFunction"
-              required
-            />
-            <input
-              class="dia_inp"
-              type="text"
-              name="Age"
-              placeholder="Age"
-              required
-            />
-          </div>
-
-          <button type="submit" class="diabetes-btn">Predict</button>
-        </form>
-        <p style="font-size: xx-large; text-align: center">
-          {{ diabetes_prediction }}
-        </p>
-      </div>
+    <div class="row">
+      <div id="videos"></div>
     </div>
+  </div>
 
-    <script>
-      const diabetes_values = () => {
-        const form = document.forms["dia_form"];
+  <div id="content-contact" class="content">
+    <h1 class="heading">Emergency Contact Page</h1>
+    <h1>Redirecting to Whatsapp...</h1>
 
-        form.elements["Pregnancies"].value = getRandomInt(6.0);
-        setTimeout(() => {
-          form.elements["Glucose"].value = getRandomInt(148.0);
-        }, 1500);
-        setTimeout(() => {
-          form.elements["BloodPressure"].value = getRandomInt(72.0);
-        }, 2000);
-        setTimeout(() => {
-          form.elements["SkinThickness"].value = getRandomInt(35.0);
-        }, 2500);
-        setTimeout(() => {
-          form.elements["Insulin"].value = getRandomInt2(0.0);
-        }, 3200);
-        setTimeout(() => {
-          form.elements["BMI"].value = getRandomInt(33.6);
-        }, 3800);
-        setTimeout(() => {
-          form.elements["DiabetesPedigreeFunction"].value =
-            getRandomInt3(0.627);
-        }, 4200);
-        setTimeout(() => {
-          form.elements["Age"].value = getRandomInt(50.0);
-        }, 5300);
-        setTimeout(() => {
-          document.getElementsByClassName("diabetes-btn")[0].click();
-        }, 5500);
-      };
+    <a id="emergency-contact-atag" href="https://wa.me/919918060109/?text=You are my Emergency Contact" target="_blank">
+    </a>
+  </div>
 
-      function getRandomInt(val) {
-        var num = Math.random() * (val + 5 - (val - 5)) + (val - 5);
-        return num.toFixed(1);
-      }
-      function getRandomInt2(val) {
-        var num = Math.random() * (800 - 50) + 50;
-        return num.toFixed(1);
-      }
-      function getRandomInt3(val) {
-        var num = Math.random() * (val + 0.5);
-        return num.toFixed(3);
-      }
-    </script>
+  <!-- <p id="page"></p> -->
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../static/script.js"></script>
 
-    <div id="content-heart" class="content">
-      <div class="login">
-        <h1 class="heading">Heart Disease Detection</h1>
-
-        <!-- Main Input For Receiving Query to our ML -->
-        <form
-          name="heart_form"
-          action="{{ url_for('predict_heart')}}"
-          method="post"
-          id="heart_form"
-        >
-          <div class="formWrapper">
-            <input type="text" name="age" placeholder="age" required />
-
-            <input type="text" name="anaemia" placeholder="anaemia" required />
-
-            <input
-              type="text"
-              name="creatinine_phosphokinase"
-              placeholder="creatinine_phosphokinase"
-              required
-            />
-
-            <input
-              type="text"
-              name="diabetes"
-              placeholder="diabetes"
-              required
-            />
-
-            <input
-              type="text"
-              name="ejection_fraction"
-              placeholder="ejection_fraction"
-              required
-            />
-
-            <input
-              type="text"
-              name="high_blood_pressure"
-              placeholder="high_blood_pressure"
-              required
-            />
-
-            <input
-              type="text"
-              name="platelets"
-              placeholder="platelets"
-              required
-            />
-
-            <input
-              type="text"
-              name="serum_creatinine"
-              placeholder="serum_creatinine"
-              required
-            />
-
-            <input
-              type="text"
-              name="serum_sodium"
-              placeholder="serum_sodium"
-              required
-            />
-
-            <input type="text" name="sex" placeholder="sex" required />
-
-            <input type="text" name="smoking" placeholder="smoking" required />
-
-            <input type="text" name="time" placeholder="time" required />
-          </div>
-
-          <button type="submit" class="heart-btn">Predict</button>
-        </form>
-        <p style="font-size: xx-large; text-align: center">
-          {{ heart_prediction }}
-        </p>
-      </div>
-    </div>
-
-    <script>
-      const heart_values = () => {
-        const form = document.forms["heart_form"];
-
-        form.elements["age"].value = getRandomInt(75.0);
-        setTimeout(() => {
-          form.elements["anaemia"].value = getRandomInt2(0.0);
-        }, 1500);
-        setTimeout(() => {
-          form.elements["creatinine_phosphokinase"].value = getRandomInt(582.0);
-        }, 2000);
-        setTimeout(() => {
-          form.elements["diabetes"].value = getRandomInt2(0.0);
-        }, 2500);
-        setTimeout(() => {
-          form.elements["ejection_fraction"].value = getRandomInt(20.0);
-        }, 3200);
-        setTimeout(() => {
-          form.elements["high_blood_pressure"].value = getRandomInt2(1.0);
-        }, 3800);
-        setTimeout(() => {
-          form.elements["platelets"].value = getRandomInt3(265000);
-        }, 4200);
-        setTimeout(() => {
-          form.elements["serum_creatinine"].value = getRandomInt4(1.9);
-        }, 5300);
-        setTimeout(() => {
-          form.elements["serum_sodium"].value = getRandomInt(130.0);
-        }, 5700);
-        setTimeout(() => {
-          form.elements["sex"].value = getRandomInt2(1.0);
-        }, 6100);
-        setTimeout(() => {
-          form.elements["smoking"].value = getRandomInt2(0.0);
-        }, 6800);
-        setTimeout(() => {
-          form.elements["time"].value = getRandomInt(10.1);
-        }, 7500);
-        setTimeout(() => {
-          document.getElementsByClassName("heart-btn")[0].click();
-        }, 8000);
-      };
-
-      function getRandomInt(val) {
-        var num = Math.random() * (val + 5 - (val - 5)) + (val - 5);
-        return num.toFixed(1);
-      }
-      function getRandomInt2(val) {
-        var num = Math.floor(Math.random() * (1.9 - 0)) + 0;
-        return num.toFixed(1);
-      }
-      function getRandomInt3(val) {
-        var num = Math.random() * (val + 50000 - (val - 50000)) + (val - 50000);
-        return num.toFixed(3);
-      }
-      function getRandomInt4(val) {
-        var num = Math.random() * (val + 1.25 - (val - 1.25)) + (val - 1.25);
-        return num.toFixed(1);
-      }
-    </script>
-
-    <div id="content-speech" class="content">
-      <h1 class="heading">Speak to search Youtube</h1>
-      <main>
-        <div id="result"></div>
-        <p id="message" hidden aria-hidden="true">
-          Your browser doesn't support Speech Recognition. Sorry.
-        </p>
-      </main>
-
-      <div class="form-container">
-        <form id="yt_form">
-          <!-- <input type="text" id="search" /> -->
-          <input type="submit" value="Search" id="yt_submit" />
-        </form>
-      </div>
-
-      <div class="row">
-        <div id="videos"></div>
-      </div>
-    </div>
-
-    <div id="content-contact" class="content">
-      <h1 class="heading">Emergency Contact Page</h1>
-      <h1>Redirecting to Whatsapp...</h1>
-
-      <a
-        id="emergency-contact-atag"
-        href="https://wa.me/919918060109/?text=You are my Emergency Contact"
-        target="_blank"
-      >
-      </a>
-    </div>
-
-    <!-- <p id="page"></p> -->
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="../static/script.js"></script>
 </html>
