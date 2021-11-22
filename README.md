@@ -88,6 +88,7 @@ Deploying the app. Deploying the software
 4. Emergency contact using whatsapp
 
 ##  Our Project:
+![markdown logo](static/gif1.gif)
 ![markdown logo](static/home.png)
 ![markdown logo](static/diabetes.png)
 ![markdown logo](static/heart.png)
