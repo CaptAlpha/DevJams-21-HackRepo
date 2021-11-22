@@ -5,6 +5,13 @@
 body {
   height: 100%;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: #34499a;
+}
 .navbarContainer {
   width: 100%;
   /* position: fixed; */
@@ -101,23 +108,11 @@ input {
   display: none;
 }
 
-#whatsapp_msg {
-  font-size:xx-large;
-  font-weight: bold;
-  text-align: center;
-  border: 5 solid green;
+#videos {
+  width: 70%;
+  margin: auto;
 }
 
-.send_msg {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  border: 5 solid black;
-  background-color: greenyellow;
-  text-align: center; 
-  width: 10%; 
-  height: 5%;
+.yt_iframe {
+  width: 100%;
 }
