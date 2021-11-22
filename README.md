@@ -83,11 +83,11 @@ Deploying the app. Deploying the software
 
 
 ##  Our Project:
-![markdown logo](static\hone.png)
-![markdown logo](static\diabetes.png)
-![markdown logo](static\heart.png)
-![markdown logo](static\software.png)
-![markdown logo](static\emergency-contacts.png)
+![markdown logo](static/hone.png)
+![markdown logo](static/diabetes.png)
+![markdown logo](static/heart.png)
+![markdown logo](static/software.png)
+![markdown logo](static/emergency-contacts.png)
 
 
 
