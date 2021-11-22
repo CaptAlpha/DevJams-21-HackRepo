@@ -4,6 +4,7 @@
 }
 body {
   height: 100%;
+  overflow: hidden;
 }
 a {
   text-decoration: none;
@@ -56,6 +57,7 @@ a:hover {
 }
 #content-home {
   display: block;
+  background-color: #ffbb56;
 }
 
 .heading {
@@ -65,6 +67,13 @@ a:hover {
   font-size: 250%;
   font-family: "Montagu Slab", serif;
 }
+.heading-home {
+  color: #34499a;
+  font-weight: 900;
+  font-size: 400%;
+  font-family: "Montagu Slab", serif;
+}
+
 img {
   width: 100%;
   height: 90%;
@@ -111,6 +120,7 @@ input {
   margin-left: 25%;
   color: #ffbb56;
   font-size: 150%;
+  z-index: 10;
 }
 .heart-btn:hover,
 .diabetes-btn:hover {
@@ -131,4 +141,94 @@ input {
 
 .yt_iframe {
   width: 100%;
+}
+
+.card {
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  padding: 3%;
+  margin: 5%;
+  margin-top: 2%;
+  font-size: 100%;
+  color: #454699;
+  border-radius: 10px;
+}
+
+.card-container {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#cardright {
+  background-color: #34499a;
+  z-index: 10;
+}
+#cardleft {
+  z-index: 10;
+}
+
+.gif1,
+.gif2 {
+  width: 80%;
+  height: 50%;
+  padding: auto;
+  margin: auto;
+}
+.text2,
+.text1 {
+  padding: 2%;
+  margin: 2%;
+  height: 40%;
+  width: 80%;
+  color: white;
+  font-size: 400%;
+}
+.text1 {
+  color: #34499a;
+}
+
+.circle {
+  position: absolute;
+  background-color: #34499a;
+  padding: 15%;
+  border-radius: 100%;
+  top: 100;
+  left: -250;
+  z-index: 0;
+}
+.circle2 {
+  position: absolute;
+  background: transparent;
+  bottom: -200;
+  right: -150;
+  padding: 15%;
+  border-radius: 100%;
+  background-color: #ffbb56;
+  border: 70px solid white;
+  z-index: 0;
+}
+
+.content-speech {
+  z-index: 10;
+}
+
+.row {
+  z-index: 10;
+}
+
+.videos {
+  z-index: 10;
+}
+.btn {
+  font-family: "Poppins", sans-serif;
+}
+.content {
+  z-index: 10;
+}
+.sunheading {
+  z-index: 10;
 }

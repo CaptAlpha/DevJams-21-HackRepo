@@ -106,7 +106,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&family=Poppins&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&family=Poppins:wght@300&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -130,7 +130,7 @@
         </div>
         <div class="option">
           <button id="button_4" class="btn" onclick="speech()">
-            Speech Recognition
+            Youtube Search
           </button>
         </div>
         <div class="option">
@@ -142,9 +142,86 @@
     </div>
 
     <!-- Content -->
+
     <div id="content-home" class="content">
+      <div class="circle">.</div>
+      <div class="circle2">.</div>
       <!-- <img src="./images/Screenshot 2021-11-21 at 12.50.49 PM.png" alt="" /> -->
-      <img src="../static/Screenshot 2021-11-21 at 12.51.04 PM.png" alt="" />
+      <!-- <img src="../static/Screenshot 2021-11-21 at 12.51.04 PM.png" alt="" /> -->
+      <h1 class="heading heading-home">Working&nbsp; of &nbsp; Blinkerz</h1>
+      <div class="card-container">
+        <!-- <div class="card" id="card1">
+          1. We navigate through out the web application using detections of
+          blinks
+        </div>
+        <div class="card" id="card2">
+          2. A short blink refers to next option whereas a long blink can be
+          used to select a button
+        </div>
+        <div class="card" id="card3">
+          3. Scanning of various health parameters using sensors from smart
+          watches
+        </div>
+        <div class="card" id="card4">
+          4. Using third party API calls to access resources on the web
+        </div>
+        <div class="card" id="card5">
+          5. Trained ML Models to scan for diseases such as heart failures and
+          diabetes.
+        </div>
+        <div class="card" id="card6">
+          6. Contact Emergency contacts in times for serious emergencies using
+          automated whatsapp messages
+        </div> -->
+        <div class="card" id="cardleft">
+          <div class="text1">
+            Short Blink <br />
+            To Navigate
+          </div>
+
+          <div
+            class="tenor-gif-embed gif1"
+            data-postid="4775046"
+            data-share-method="host"
+            data-aspect-ratio="1.47059"
+            data-width="100%"
+          >
+            <a
+              href="https://tenor.com/view/adventure-time-stare-look-speechless-blink-gif-4775046"
+              >Blinking GIF</a
+            >from
+            <a href="https://tenor.com/search/adventure+time-gifs"
+              >Adventure Time GIFs</a
+            >
+          </div>
+          <script type="text/javascript"></script>
+        </div>
+        <div class="card" id="cardright">
+          <div
+            class="tenor-gif-embed gif2"
+            data-postid="16147939"
+            data-share-method="host"
+            data-aspect-ratio="1.77778"
+            data-width="100%"
+          >
+            <a
+              href="https://tenor.com/view/rory-carr-short-blink-smile-guy-gif-16147939"
+              >Rory Carr Short GIF</a
+            >from
+            <a href="https://tenor.com/search/rory+carr-gifs">Rory Carr GIFs</a>
+          </div>
+          <script
+            type="text/javascript"
+            async
+            src="https://tenor.com/embed.js"
+          ></script>
+          <div class="text2">
+            Long Blink <br />
+            To Select
+          </div>
+        </div>
+      </div>
+
       <div id="test" style="display: none">
         <p id="diabetes_bool">{{ diabetes_bool }}</p>
         <p id="heart_bool">{{ heart_bool }}</p>
@@ -192,6 +269,8 @@
     </div>
 
     <div id="content-diabetes" class="content">
+      <div class="circle">.</div>
+      <div class="circle2">.</div>
       <div class="login">
         <h1 class="heading">Diabetes Detection</h1>
 
@@ -316,6 +395,8 @@
     </script>
 
     <div id="content-heart" class="content">
+      <div class="circle">.</div>
+      <div class="circle2">.</div>
       <div class="login">
         <h1 class="heading">Heart Disease Detection</h1>
 
@@ -457,6 +538,7 @@
     </script>
 
     <div id="content-speech" class="content">
+      <div class="circle">.</div>
       <h1 class="heading">Speak to search Youtube</h1>
       <main>
         <div id="result"></div>
@@ -478,8 +560,9 @@
     </div>
 
     <div id="content-contact" class="content">
+      <div class="circle2">.</div>
       <h1 class="heading">Emergency Contact Page</h1>
-      <h1>Redirecting to Whatsapp...</h1>
+      <h1 class="subheading">Redirecting to Whatsapp...</h1>
 
       <a
         id="emergency-contact-atag"
