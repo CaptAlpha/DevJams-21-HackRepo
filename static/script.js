@@ -84,7 +84,7 @@ $(document).ready(function () {
         console.log("LENGTH: ", data.items.length);
 
         data.items.forEach((item) => {
-          video = ` <iframe class="yt_iframe" height="450" src="http://www.youtube.com/embed/${item.id.videoId}?autoplay=1&cc_load_policy=1" allow="autoplay" frameborder="0" allowfullscreen></iframe> `;
+          video = ` <iframe class="yt_iframe" height="450" src="https://www.youtube.com/embed/${item.id.videoId}?autoplay=1&cc_load_policy=1" allow="autoplay" frameborder="0" allowfullscreen></iframe> `;
           const videodiv = document.createElement("div");
           videodiv.classList.add("yt_videos");
           videodiv.innerHTML = video;
